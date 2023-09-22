@@ -74,6 +74,7 @@ export default {
         align-items: center;
         font-style:italic;
         font-size: 20px;
+        cursor: pointer;
         img{
             width: 30px;
             height: 30px;

@@ -2,8 +2,8 @@
     <div class="nanlan">
         <div class="part1">
             <div class="img">
-                <el-carousel :interval="4000" type="card" height="auto" v-if="imgData[0]!=null">
-                    <el-carousel-item v-for="item in imgData" :key="item" style="height:auto">
+                <el-carousel :interval="4000" type="card" height="auto" v-if="part1ImgData[0]!=null">
+                    <el-carousel-item v-for="item in part1ImgData" :key="item" style="height:auto">
                        <img :src="getImgURL(item.url)" alt="" />
                     </el-carousel-item>
                 </el-carousel>
@@ -14,79 +14,230 @@
                 <h1>赛程<i class="iconfont icon-guanjun"></i>全场次免费</h1>
                 <h1 style="color:#0ca5ff;font-family: 方正姚体">安慕希</h1>
             </div>
-            <div class="info">
-                <img src="../../assets/images/part2-1.png" alt="">
-                <img src="../../assets/images/part2-1.png" alt="">
-                <img src="../../assets/images/part2-1.png" alt="">
-                <img src="../../assets/images/part2-1.png" alt="">
-                <img src="../../assets/images/part2-1.png" alt="">
-            </div>
+            <el-carousel
+              height="180px" 
+              arrow="always" 
+              :autoplay="false" 
+              :loop="false"
+              indicator-position="none"         
+            >
+                <el-carousel-item
+                  v-for="item in part2ImgData"
+                  :key="item"  
+                >
+                    <div class="info">
+                        <img
+                         v-for="item1 in item.listitem" 
+                         :key="item1" 
+                         :src="getImgURL(item1.url)" 
+                         alt="" 
+                        />
+                    </div>
+                </el-carousel-item>
+            </el-carousel>
         </div>
         <div class="common part3">
             <h1>重磅  5-8名排位赛对阵</h1>
-            <div class="info">
-                <div class="single">
-                    <img src="../../assets/images/part3-1.png" alt="">
-                    <h2>19:30  美国vs德国</h2>
-                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                </div>
-                <div class="single">
-                    <img src="../../assets/images/part3-1.png" alt="">
-                    <h2>19:30  美国vs德国</h2>
-                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                </div>
-                <div class="single">
-                    <img src="../../assets/images/part3-1.png" alt="">
-                    <h2>19:30  美国vs德国</h2>
-                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                </div>
-                <div class="single">
-                    <img src="../../assets/images/part3-1.png" alt="">
-                    <h2>19:30  美国vs德国</h2>
-                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                </div>
-                <div class="single">
-                    <img src="../../assets/images/part3-1.png" alt="">
-                    <h2>19:30  美国vs德国</h2>
-                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                </div>
-            </div>
+                <el-carousel
+                  height="240px"
+                  arrow="always" 
+                  :autoplay="false" 
+                  :loop="false"
+                  indicator-position="none"
+                >
+                    <el-carousel-item>
+                            <div class="info">
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                            </div>
+                        </el-carousel-item>
+                    <el-carousel-item>
+                            <div class="info">
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                            </div>
+                        </el-carousel-item>
+                    <el-carousel-item>
+                            <div class="info">
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                                <div class="single">
+                                    <img src="../../assets/images/part3-1.png" alt="">
+                                    <h2>19:30  美国vs德国</h2>
+                                    <span class="note">巅峰对决！梦之队冲决赛</span>
+                                </div>
+                            </div>
+                        </el-carousel-item>
+                </el-carousel>           
         </div>
         <div class="common part4">
             <h1>球星集锦</h1> 
-            <div class="info">
-                <div class="single">
-                    <img src="../../assets/images/part4-1.png" alt="">
-                    <h2>施罗德vs塞尔维亚集锦</h2>
-                    <span class="note">决赛独揽28分荣膺MVP</span>
-                </div>
-                <div class="single">
-                    <img src="../../assets/images/part4-1.png" alt="">
-                    <h2>施罗德vs塞尔维亚集锦</h2>
-                    <span class="note">决赛独揽28分荣膺MVP</span>
-                </div>
-                <div class="single">
-                    <img src="../../assets/images/part4-1.png" alt="">
-                    <h2>施罗德vs塞尔维亚集锦</h2>
-                    <span class="note">决赛独揽28分荣膺MVP</span>
-                </div>
-                <div class="single">
-                    <img src="../../assets/images/part4-1.png" alt="">
-                    <h2>施罗德vs塞尔维亚集锦</h2>
-                    <span class="note">决赛独揽28分荣膺MVP</span>
-                </div>
-                <div class="single">
-                    <img src="../../assets/images/part4-1.png" alt="">
-                    <h2>施罗德vs塞尔维亚集锦</h2>
-                    <span class="note">决赛独揽28分荣膺MVP</span>
-                </div>
-            </div>
+                <el-carousel 
+                  height="240px"
+                  arrow="always" 
+                  :autoplay="false" 
+                  :loop="false"
+                  indicator-position="none"
+                >
+                    <el-carousel-item>
+                        <div class="info">
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                        </div>
+                    </el-carousel-item>
+                    <el-carousel-item>
+                        <div class="info">
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                        </div>
+                    </el-carousel-item>
+                    <el-carousel-item>
+                        <div class="info">
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                            <div class="single">
+                                <img src="../../assets/images/part4-1.png" alt="">
+                                <h2>施罗德vs塞尔维亚集锦</h2>
+                                <span class="note">决赛独揽28分荣膺MVP</span>
+                            </div>
+                        </div>
+                    </el-carousel-item>
+                </el-carousel>          
         </div>
         <div class="common part5">
             <h1>独家原创</h1>
             <div>
                 <el-tabs
                    class="demo-tabs" 
+                   v-model="activeName"
                 >
                     <el-tab-pane label="十二分之一" name="first">
                         <div class="info">
@@ -212,30 +363,27 @@
 
 <script>
 import { defineComponent, getCurrentInstance, onMounted, ref } from 'vue';
-import axios from "axios";
 
 export default defineComponent({
     setup() {
         const { proxy } = getCurrentInstance();
 
-        const imgData = ref([
-            // { url: new URL('../../assets/images/part1-1.png', import.meta.url).href },
-            // { url: new URL('../../assets/images/part1-2.png', import.meta.url).href },
-            // { url: new URL('../../assets/images/part1-1.png', import.meta.url).href },
-            // { url: new URL('../../assets/images/part1-2.png', import.meta.url).href },
-        ]);
+        const activeName = ref('first');
 
+        const part1ImgData = ref([]);
+        const part2ImgData = ref([]);
 
-        const getUrl = async () => {
-            // await axios.get("https://www.fastmock.site/mock/1c2b96dd4dc18861c6bb409860f7b671/api/basketball/getPart2Data").then((res) => {
-            //     // console.log(res.data);
-            //     if (res.data.code == 200) {
-            //         imgData.value = res.data.data;
-            //     }
-            // })
-            let res = await proxy.$api.getPart2Data();
+        const getPart1Url = async () => {
+            let res = await proxy.$api.getPart1Data();
             // console.log(res);
-            imgData.value = res
+            part1ImgData.value = res
+        };
+
+        const getPart2Url = async () => {
+            let res = await proxy.$api.getPart2Data();
+            console.log(res);
+            // console.log(res.list);
+            part2ImgData.value = res.page
         };
 
 
@@ -244,12 +392,15 @@ export default defineComponent({
         }
 
         onMounted(() => {
-            getUrl();
+            getPart1Url();
+            getPart2Url()
         });
 
         return {
-            imgData,
-            getImgURL
+            part1ImgData,
+            part2ImgData,
+            getImgURL,
+            activeName
         }
     },
 }) 
@@ -285,6 +436,28 @@ export default defineComponent({
             font-size: 25px;
             font-weight: bold;
             padding: 0 40px;
+        }
+        :deep(.el-carousel__arrow--left){
+            background-color: transparent;
+            left: 10px;
+           .el-icon{
+                color: #666;
+                font-size: 35px;
+            }
+           .el-icon:hover{
+                color: #000;
+            }
+        }
+        :deep(.el-carousel__arrow--right){
+            background-color: transparent;
+            right: 10px;
+           .el-icon{
+                color: #666;
+                font-size: 35px;
+            }
+            .el-icon:hover{
+                color: #000;
+            }
         }
         .info{
             display: flex;
