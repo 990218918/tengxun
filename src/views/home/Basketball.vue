@@ -2,9 +2,9 @@
     <div class="nanlan">
         <div class="part1">
             <div class="img">
-                <el-carousel :interval="4000" type="card" height="auto">
+                <el-carousel :interval="4000" type="card" height="auto" v-if="imgData[0]!=null">
                     <el-carousel-item v-for="item in imgData" :key="item" style="height:auto">
-                       <img :src="item.url" alt="" />
+                       <img :src="getImgURL(item.url)" alt="" />
                     </el-carousel-item>
                 </el-carousel>
             </div>
@@ -86,9 +86,7 @@
             <h1>独家原创</h1>
             <div>
                 <el-tabs
-                   v-model="activeName" 
                    class="demo-tabs" 
-                   @tab-click="handleClick"
                 >
                     <el-tab-pane label="十二分之一" name="first">
                         <div class="info">
@@ -209,25 +207,53 @@
                 </el-tabs>
             </div>
         </div>
-        <div class="part6"></div>
     </div>
 </template>
 
 <script>
-import { reactive } from 'vue'
-export default {
+import { defineComponent, getCurrentInstance, onMounted, ref } from 'vue';
+import axios from "axios";
+
+export default defineComponent({
     setup() {
-        const imgData = reactive([
-            { url: new URL('../../assets/images/part1-1.png', import.meta.url).href },
-            { url: new URL('../../assets/images/part1-2.png', import.meta.url).href },
-            { url: new URL('../../assets/images/part1-1.png', import.meta.url).href },
-            { url: new URL('../../assets/images/part1-2.png', import.meta.url).href },
+        const { proxy } = getCurrentInstance();
+
+        const imgData = ref([
+            // { url: new URL('../../assets/images/part1-1.png', import.meta.url).href },
+            // { url: new URL('../../assets/images/part1-2.png', import.meta.url).href },
+            // { url: new URL('../../assets/images/part1-1.png', import.meta.url).href },
+            // { url: new URL('../../assets/images/part1-2.png', import.meta.url).href },
         ]);
+
+
+        const getUrl = async () => {
+            // await axios.get("https://www.fastmock.site/mock/1c2b96dd4dc18861c6bb409860f7b671/api/basketball/getPart2Data").then((res) => {
+            //     // console.log(res.data);
+            //     if (res.data.code == 200) {
+            //         imgData.value = res.data.data;
+            //     }
+            // })
+            let res = await proxy.$api.getPart2Data();
+            // console.log(res);
+            imgData.value = res
+        };
+
+
+        const getImgURL = url => {
+            return new URL(`../../assets/images/${url}.png`, import.meta.url).href
+        }
+
+        onMounted(() => {
+            getUrl();
+        });
+
         return {
             imgData,
+            getImgURL
         }
     },
-}
+}) 
+
 </script>
 
 <style lang="less" scoped>
@@ -268,6 +294,7 @@ export default {
                 height: 160px;
                 border-radius: 5px;
                 margin: 15px;
+                cursor:pointer;
             }
             h2{
             font-size: 16px;

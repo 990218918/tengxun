@@ -24,7 +24,7 @@
             <i class="iconfont icon-diannao_o"></i>
             <el-dropdown placement="bottom-end" show-arrow="false">
                <span class="el-dropdown-link">
-                  <img class="user" src="../assets/images/user.jpg" alt="">
+                  <img class="user" :src="getImgSrc('user')" alt="">
                </span>
                <template #dropdown>
                  <el-dropdown-menu class="userDrop">
@@ -43,8 +43,12 @@ export default {
 
     setup() {
         const input = ref('');
+        const getImgSrc = (user) => {
+            return new URL(`../assets/images/${user}.jpg`, import.meta.url).href;
+        }
         return {
-            input
+            input,
+            getImgSrc
         }
     },
 }
@@ -110,9 +114,9 @@ export default {
             margin: 10px; 
             cursor:pointer;
         }
-        /deep/.el-dropdown-menu__item:not(.is-disabled){
-            background-color: #000;
-        }
+        // /deep/.el-dropdown-menu__item:not(.is-disabled){
+        //     background-color: #000;
+        // }
     }
 }
 </style>

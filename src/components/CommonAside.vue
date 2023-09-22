@@ -1,115 +1,18 @@
 <template>
     <el-aside width="200px">
-        <div class="top">
-            <a href="">
-                <span>
-                    <i class="iconfont icon-shoucang"></i>
-                </span>
-                <span>首页</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-duanshipinhuati"></i>
-                </span>
-                <span>中视频</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-dianshizhibo"></i>
-                </span>
-                <span>电视剧</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-film-line"></i>
-                </span>
-                <span>电影</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-maikefeng"></i>
-                </span>
-                <span>综艺</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-dongman"></i>
-                </span>
-                <span>动漫</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-a-tupianyihuifu-20"></i>
-                </span>
-                <span>游戏中心</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-shaoer"></i>
-                </span>
-                <span>少儿</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-lanqiu1"></i>
-                </span>
-                <span>篮球世界杯</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-lanqiu1"></i>
-                </span>
-                <span>体育</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-shipinbofang"></i>
-                </span>
-                <span>纪录片</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-lanqiu"></i>
-                </span>
-                <span>NBA</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-VIP"></i>
-                </span>
-                <span>VIP会员</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-a-tupianyihuifu-20"></i>
-                </span>
-                <span>游戏</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-youxitubiao"></i>
-                </span>
-                <span>传奇游戏库</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-keji"></i>
-                </span>
-                <span>科技</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-yinle"></i>
-                </span>
-                <span>音乐</span>
-            </a>
-            <a href="">
-                <span>
-                    <i class="iconfont icon-zuqiu"></i>
-                </span>
-                <span>中超</span>
-            </a>
-        </div>
+        <el-menu class="el-menu-vertical-demo">
+          <el-menu-item
+           :index="item.path" 
+           v-for="item in list"
+           :key="item.path"
+           @click="clickMenu(item)"
+        >
+            <span>
+                <i class="iconfont" :class="item.icon"></i>
+            </span>
+            <span>{{ item.label }}</span>
+          </el-menu-item>
+        </el-menu>
         <div class="under">
             <div class="up">
                 <a href="">腾讯视频隐私保护指引</a>
@@ -137,23 +40,182 @@
     </el-aside>
 </template>
 
+<script>
+import { useRouter } from 'vue-router';
+
+export default {
+    setup() {
+        const list = [
+            {
+                path: "/home",
+                name: "home",
+                label: "首页",
+                icon: "icon-shoucang",
+                url: "",
+            },
+            {
+                path: "/mvideo",
+                name: "mvideo",
+                label: "中视频",
+                icon: "icon-duanshipinhuati",
+                url: "",
+            },
+            {
+                path: "/tv",
+                name: "tv",
+                label: "电视剧",
+                icon: "icon-dianshizhibo",
+                url: "",
+            },
+            {
+                path: "/movie",
+                name: "movie",
+                label: "电影",
+                icon: "icon-film-line",
+                url: "",
+            },
+            {
+                path: "/show",
+                name: "show",
+                label: "综艺",
+                icon: "icon-maikefeng",
+                url: "",
+            },
+            {
+                path: "/comic",
+                name: "comic",
+                label: "动漫",
+                icon: "icon-dongman",
+                url: "",
+            },
+            {
+                path: "/gamecentre",
+                name: "gamecentre",
+                label: "游戏中心",
+                icon: "icon-a-tupianyihuifu-20",
+                url: "",
+            },
+            {
+                path: "/child",
+                name: "child",
+                label: "少儿",
+                icon: "icon-shaoer",
+                url: "",
+            },
+            {
+                path: "/basketball",
+                name: "basketball",
+                label: "男篮世界杯",
+                icon: "icon-lanqiu1",
+                url: "",
+            },
+            {
+                path: "/sport",
+                name: "sport",
+                label: "体育",
+                icon: "icon-lanqiu1",
+                url: "",
+            },
+            {
+                path: "/documentary",
+                name: "documentary",
+                label: "纪录片",
+                icon: "icon-shipinbofang",
+                url: "",
+            },
+            {
+                path: "/NBA",
+                name: "NBA",
+                label: "NBA",
+                icon: "icon-lanqiu",
+                url: "",
+            },
+            {
+                path: "/VIP",
+                name: "VIP",
+                label: "VIP会员",
+                icon: "icon-VIP",
+                url: "",
+            },
+            {
+                path: "/game",
+                name: "game",
+                label: "游戏",
+                icon: "icon-a-tupianyihuifu-20",
+                url: "",
+            },
+            {
+                path: "/gamelibrary",
+                name: "gamelibrary",
+                label: "传奇游戏库",
+                icon: "icon-youxitubiao",
+                url: "",
+            },
+            {
+                path: "/technology",
+                name: "technology",
+                label: "科技",
+                icon: "icon-keji",
+                url: "",
+            },
+            {
+                path: "/music",
+                name: "music",
+                label: "音乐",
+                icon: "icon-yinle",
+                url: "",
+            },
+            {
+                path: "/football",
+                name: "football",
+                label: "中超",
+                icon: "icon-zuqiu",
+                url: "",
+            },
+        ];
+
+        const router = useRouter();
+
+        const clickMenu = (item) => {
+            router.push({
+                name: item.name,
+            })
+        }
+
+        return {
+            list,
+            clickMenu
+        }
+    },
+}
+</script>
+
 <style lang="less" scoped>
-.top{
+.el-menu{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    color: #bdbdbd;
-    a{
-        width: 100%;
+    background-color: #2b2b2b;
+    border-right: 0;
+    span{
+        display: flex;
+        color: #bdbdbd;
+        height: 100%;
+        align-items: center;
+    }
+    i{
         display: flex;
         align-items: center;
-        padding: 0 30px;
         margin: 15px;
-        font-size: 16px;
-        .iconfont{
-            font-size: 20px;
-            margin-right: 20px;
-        }
+    }
+    .iconfont{
+        font-size: 20px;
+        margin-right: 20px;
+        width: 20px;
+        height: 20px;
+        padding: 0;
+    }
+    .el-menu-item:hover {
+        background-color: #2b2b2b;
     }
 }
 .under{
