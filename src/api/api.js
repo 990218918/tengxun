@@ -20,6 +20,33 @@ export default {
             data: params,
             mock: true
         })
-    }
+    },
+
+    getPart3Data(params) {
+        return request({
+            url: '/basketball/getPart3Data',
+            method: 'get',
+            data: params,
+            mock: true
+        })
+    },
+
+    getPart4Data(params) {
+        return request({
+            url: '/basketball/getPart4Data',
+            method: 'get',
+            data: params,
+            mock: true
+        })
+    },
+
+    getPart5Data(params) {
+        return request({
+            url: '/basketball/getPart5Data',
+            method: 'get',
+            data: params,
+            mock: true
+        })
+    },
 
 }

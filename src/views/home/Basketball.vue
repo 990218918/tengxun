@@ -25,13 +25,12 @@
                   v-for="item in part2ImgData"
                   :key="item"  
                 >
-                    <div class="info">
-                        <img
-                         v-for="item1 in item.listitem" 
-                         :key="item1" 
-                         :src="getImgURL(item1.url)" 
-                         alt="" 
-                        />
+                    <div
+                      v-for="item1 in item.listitem" 
+                      :key="item1"
+                      class="info"
+                    >
+                        <img :src="getImgURL(item1.url)" alt=""/>
                     </div>
                 </el-carousel-item>
             </el-carousel>
@@ -45,192 +44,38 @@
                   :loop="false"
                   indicator-position="none"
                 >
-                    <el-carousel-item>
-                            <div class="info">
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                            </div>
-                        </el-carousel-item>
-                    <el-carousel-item>
-                            <div class="info">
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                            </div>
-                        </el-carousel-item>
-                    <el-carousel-item>
-                            <div class="info">
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                                <div class="single">
-                                    <img src="../../assets/images/part3-1.png" alt="">
-                                    <h2>19:30  美国vs德国</h2>
-                                    <span class="note">巅峰对决！梦之队冲决赛</span>
-                                </div>
-                            </div>
+                    <el-carousel-item
+                      v-for="item in part3ImgData"
+                      :key="item"
+                    >
+                        <div v-for="item1 in item.listitem" :key="item1" class="info">
+                            <img :src="getImgURL(item1.url)" alt="">
+                            <h2>{{item1.txt1}}</h2>
+                            <span class="note">{{item1.txt2}}</span>
+                        </div>
                         </el-carousel-item>
                 </el-carousel>           
         </div>
         <div class="common part4">
             <h1>球星集锦</h1> 
-                <el-carousel 
+            <el-carousel
                   height="240px"
                   arrow="always" 
                   :autoplay="false" 
                   :loop="false"
                   indicator-position="none"
                 >
-                    <el-carousel-item>
-                        <div class="info">
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
+                    <el-carousel-item
+                      v-for="item in part4ImgData"
+                      :key="item"
+                    >
+                        <div v-for="item1 in item.listitem" :key="item1" class="info">
+                            <img :src="getImgURL(item1.url)" alt="">
+                            <h2>{{item1.txt1}}</h2>
+                            <span class="note">{{item1.txt2}}</span>
                         </div>
-                    </el-carousel-item>
-                    <el-carousel-item>
-                        <div class="info">
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                        </div>
-                    </el-carousel-item>
-                    <el-carousel-item>
-                        <div class="info">
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part4-1.png" alt="">
-                                <h2>施罗德vs塞尔维亚集锦</h2>
-                                <span class="note">决赛独揽28分荣膺MVP</span>
-                            </div>
-                        </div>
-                    </el-carousel-item>
-                </el-carousel>          
+                        </el-carousel-item>
+                </el-carousel> 
         </div>
         <div class="common part5">
             <h1>独家原创</h1>
@@ -239,121 +84,24 @@
                    class="demo-tabs" 
                    v-model="activeName"
                 >
-                    <el-tab-pane label="十二分之一" name="first">
-                        <div class="info">
-                            <div class="single">
-                                <img src="../../assets/images/part5-1.png" alt="">
-                                <h2>第五期：张镇麟</h2>
-                                <span class="note">为国出战是一种荣誉</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-1.png" alt="">
-                                <h2>第五期：张镇麟</h2>
-                                <span class="note">为国出战是一种荣誉</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-1.png" alt="">
-                                <h2>第五期：张镇麟</h2>
-                                <span class="note">为国出战是一种荣誉</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-1.png" alt="">
-                                <h2>第五期：张镇麟</h2>
-                                <span class="note">为国出战是一种荣誉</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-1.png" alt="">
-                                <h2>第五期：张镇麟</h2>
-                                <span class="note">为国出战是一种荣誉</span>
-                            </div>
-                        </div>            
-                    </el-tab-pane>
-                    <el-tab-pane label="破晓之光" name="second">
-                        <div class="info">
-                            <div class="single">
-                                <img src="../../assets/images/part5-2.png" alt="">
-                                <h2>第一集：无名之战</h2>
-                                <span class="note">王仕鹏朱芳雨任导师</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-2.png" alt="">
-                                <h2>第一集：无名之战</h2>
-                                <span class="note">王仕鹏朱芳雨任导师</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-2.png" alt="">
-                                <h2>第一集：无名之战</h2>
-                                <span class="note">王仕鹏朱芳雨任导师</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-2.png" alt="">
-                                <h2>第一集：无名之战</h2>
-                                <span class="note">王仕鹏朱芳雨任导师</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-2.png" alt="">
-                                <h2>第一集：无名之战</h2>
-                                <span class="note">王仕鹏朱芳雨任导师</span>
-                            </div>
-                        </div> 
-                    </el-tab-pane>
-                    <el-tab-pane label="篮场风暴" name="third">
-                        <div class="info">
-                            <div class="single">
-                                <img src="../../assets/images/part5-3.png" alt="">
-                                <h2>EP6：石学念率队出战</h2>
-                                <span class="note">永不言弃的篮球精神</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-3.png" alt="">
-                                <h2>EP6：石学念率队出战</h2>
-                                <span class="note">永不言弃的篮球精神</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-3.png" alt="">
-                                <h2>EP6：石学念率队出战</h2>
-                                <span class="note">永不言弃的篮球精神</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-3.png" alt="">
-                                <h2>EP6：石学念率队出战</h2>
-                                <span class="note">永不言弃的篮球精神</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-3.png" alt="">
-                                <h2>EP6：石学念率队出战</h2>
-                                <span class="note">永不言弃的篮球精神</span>
-                            </div>
-                        </div> 
-                    </el-tab-pane>
-                    <el-tab-pane label="战术笔记" name="fourth">
-                        <div class="info">
-                            <div class="single">
-                                <img src="../../assets/images/part5-4.png" alt="">
-                                <h2>世界杯战术笔记EP03</h2>
-                                <span class="note">男篮的进攻哪里出了问题</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-4.png" alt="">
-                                <h2>世界杯战术笔记EP03</h2>
-                                <span class="note">男篮的进攻哪里出了问题</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-4.png" alt="">
-                                <h2>世界杯战术笔记EP03</h2>
-                                <span class="note">男篮的进攻哪里出了问题</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-4.png" alt="">
-                                <h2>世界杯战术笔记EP03</h2>
-                                <span class="note">男篮的进攻哪里出了问题</span>
-                            </div>
-                            <div class="single">
-                                <img src="../../assets/images/part5-4.png" alt="">
-                                <h2>世界杯战术笔记EP03</h2>
-                                <span class="note">男篮的进攻哪里出了问题</span>
-                            </div>
-                        </div> 
+                    <el-tab-pane v-for="item in part5ImgData" :key="item" :label="item.label" :name="item.name">
+                        <el-carousel 
+                          height="240px"
+                          arrow="always" 
+                          :autoplay="false" 
+                          :loop="false"
+                          indicator-position="none"
+                        >
+                            <el-carousel-item v-for="item1 in item.page" :key="item1">
+                                <div class="info" v-for="item2 in item1.listitem" :key="item2">
+                                    <div class="single">
+                                        <img :src="getImgURL(item2.url)" alt="">
+                                        <h2>{{item2.txt1}}</h2>
+                                        <span class="note">{{ item2.txt2 }}</span>
+                                    </div>
+                                </div>
+                            </el-carousel-item>
+                        </el-carousel>
                     </el-tab-pane>
                 </el-tabs>
             </div>
@@ -372,6 +120,9 @@ export default defineComponent({
 
         const part1ImgData = ref([]);
         const part2ImgData = ref([]);
+        const part3ImgData = ref([]);
+        const part4ImgData = ref([]);
+        const part5ImgData = ref([]);
 
         const getPart1Url = async () => {
             let res = await proxy.$api.getPart1Data();
@@ -381,9 +132,28 @@ export default defineComponent({
 
         const getPart2Url = async () => {
             let res = await proxy.$api.getPart2Data();
-            console.log(res);
+            // console.log(res);
             // console.log(res.list);
             part2ImgData.value = res.page
+        };
+
+        const getPart3Url = async () => {
+            let res = await proxy.$api.getPart3Data();
+            // console.log(res);
+            // console.log(res.list);
+            part3ImgData.value = res.page
+        };
+
+        const getPart4Url = async () => {
+            let res = await proxy.$api.getPart4Data();
+            console.log(res);
+            part4ImgData.value = res.page
+        };
+
+        const getPart5Url = async () => {
+            let res = await proxy.$api.getPart5Data();
+            console.log(res);
+            part5ImgData.value = res.title
         };
 
 
@@ -393,12 +163,18 @@ export default defineComponent({
 
         onMounted(() => {
             getPart1Url();
-            getPart2Url()
+            getPart2Url();
+            getPart3Url();
+            getPart4Url();
+            getPart5Url();
         });
 
         return {
             part1ImgData,
             part2ImgData,
+            part3ImgData,
+            part4ImgData,
+            part5ImgData,
             getImgURL,
             activeName
         }
@@ -459,9 +235,14 @@ export default defineComponent({
                 color: #000;
             }
         }
+        .el-carousel__item{
+            display: flex;
+            justify-content: center;
+        }
         .info{
             display: flex;
             justify-content: center;
+            flex-direction: column;
             img{
                 width: 260px;
                 height: 160px;
