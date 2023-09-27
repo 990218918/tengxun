@@ -1,10 +1,11 @@
 <template>
+<!-- LOGO  -->
     <el-header>
         <div class="left">
             <img src="../assets/images/logo.png" alt="">
             <h5>腾讯视频</h5>
         </div>
-
+<!-- 搜索框 -->
         <div class="middle">
             <el-input
               v-model="input"
@@ -15,7 +16,7 @@
                 </template>
             </el-input>
         </div>
-
+<!-- 用户区 -->
         <div class="right">
             <i class="iconfont icon-VIP" style="color:#ffac3f"></i>
             <i class="iconfont icon-a-tupianyihuifu-20"></i>
@@ -28,27 +29,47 @@
                </span>
                <template #dropdown>
                  <el-dropdown-menu class="userDrop">
-                    <div>1111</div>
+                    <el-button class="loginBtn" text @click="dialogVisible = true">立即登录</el-button>
                  </el-dropdown-menu>
                </template>
             </el-dropdown>
+<!-- 登录框 -->
+            <el-dialog
+              v-model="dialogVisible"
+              title="账号登录"
+              width="30%"
+              center
+              class="login"
+            >
+                <span>微信和QQ是两个独立账号,账号信息不互通</span>
+                <el-button style="background-color:#54b4ef">QQ登录</el-button>
+                <el-button style="background-color:#5fcf73">微信登录</el-button>
+                <div class="agree">
+                    <el-checkbox />
+                    <p>同意<a>《服务协议》</a>、<a>《隐私政策》</a>、<a>《儿童隐私保护声明》</a>、<a>《已采集个人信息清单》</a>和<a>《第三方信息共享清单》</a></p>
+                </div>
+            </el-dialog>
         </div>
     </el-header>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 export default {
 
     setup() {
         const input = ref('');
+        const dialogVisible = ref(false);
+
         const getImgSrc = (user) => {
             return new URL(`../assets/images/${user}.jpg`, import.meta.url).href;
-        }
+        };
+
         return {
             input,
-            getImgSrc
+            getImgSrc,
+            dialogVisible,
         }
     },
 }
@@ -124,10 +145,24 @@ export default {
 
 <style lang="less">
   .userDrop{
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 150px;
     padding: 0;
     background-color: #232330;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .loginBtn{
+        width: 130px;
+        height: 28px;
+        border-radius: 15px;
+        background-image: linear-gradient(to right,#f19f39,#ea3450);
+        color: #fff;
+        border: none;
+    }
+    .loginBtn:hover{
+        background-image: linear-gradient(to right,#e7b248,#ea3450);
+    }
   }
   .el-popper__arrow{
         display: none;
@@ -136,5 +171,36 @@ export default {
     border: 0;
     inset:70.6px 36.8px auto auto !important;
     border-radius: 5px;
+  }
+  .login{
+    .el-dialog__body{
+        display: flex;
+        flex-direction: column;
+        span{
+            display: flex;
+            justify-content: center;
+        }
+        .el-button{
+            width: 200px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            margin-top: 20px;
+            border-radius: 25px;
+            color: #fff;
+        }
+        .agree{
+            display: flex;
+            padding: 50px 80px 0 80px;
+            .el-checkbox{
+                margin: -10px 5px 0 0;
+            }
+            a{
+                color: #e7b248;
+                cursor:pointer;
+            }
+        }
+    }
   }
 </style>

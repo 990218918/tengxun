@@ -1,5 +1,6 @@
 <template>
     <div class="nanlan">
+<!-- 页面第一部分 -->
         <div class="part1">
             <div class="img">
                 <el-carousel :interval="4000" type="card" height="auto" v-if="part1ImgData[0]!=null">
@@ -9,6 +10,7 @@
                 </el-carousel>
             </div>
         </div>
+<!-- 页面第二部分 -->
         <div class="common part2">
             <div class="title">
                 <h1>赛程<i class="iconfont icon-guanjun"></i>全场次免费</h1>
@@ -35,6 +37,7 @@
                 </el-carousel-item>
             </el-carousel>
         </div>
+<!-- 页面第三部分 -->
         <div class="common part3">
             <h1>重磅  5-8名排位赛对阵</h1>
                 <el-carousel
@@ -56,6 +59,7 @@
                         </el-carousel-item>
                 </el-carousel>           
         </div>
+<!-- 页面第四部分 -->
         <div class="common part4">
             <h1>球星集锦</h1> 
             <el-carousel
@@ -77,6 +81,7 @@
                         </el-carousel-item>
                 </el-carousel> 
         </div>
+<!-- 页面第五部分 -->
         <div class="common part5">
             <h1>独家原创</h1>
             <div>
@@ -146,13 +151,13 @@ export default defineComponent({
 
         const getPart4Url = async () => {
             let res = await proxy.$api.getPart4Data();
-            console.log(res);
+            // console.log(res);
             part4ImgData.value = res.page
         };
 
         const getPart5Url = async () => {
             let res = await proxy.$api.getPart5Data();
-            console.log(res);
+            // console.log(res);
             part5ImgData.value = res.title
         };
 

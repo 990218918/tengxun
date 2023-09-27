@@ -97,6 +97,10 @@ const routes = [
                 component: () => import('../views/home/Football.vue')
             },
         ]
+    },
+    {
+        path: '/login',
+        component: () => import('../views/Login.vue')
     }
 ]
 
